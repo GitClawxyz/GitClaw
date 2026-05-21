@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#003d0f" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#020c04" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="clawGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#020c04" rx="20"/>
+  <rect width="400" height="400" fill="url(#bgGlow)" rx="20"/>
+
+  <!-- Grid lines -->
+  <g stroke="#0a2e0f" stroke-width="0.5" opacity="0.6">
+    <line x1="0" y1="50" x2="400" y2="50"/>
+    <line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="250" x2="400" y2="250"/>
+    <line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="0" y1="350" x2="400" y2="350"/>
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+  </g>
+
+  <!-- Outer hexagon border -->
+  <polygon
+    points="200,18 358,109 358,291 200,382 42,291 42,109"
+    fill="none"
+    stroke="#00ff41"
+    stroke-width="2"
+    opacity="0.3"
+    filter="url(#glow)"
+  />
+
+  <!-- Inner hexagon -->
+  <polygon
+    points="200,45 335,122 335,278 200,355 65,278 65,122"
+    fill="none"
+    stroke="#00ff41"
+    stroke-width="1"
+    opacity="0.15"
+  />
+
+  <!-- Glow center -->
+  <circle cx="200" cy="200" r="100" fill="url(#clawGlow)"/>
+
+  <!-- CLAW shape — three curved claws -->
+  <!-- Left claw -->
+  <path d="M 200 200 Q 140 160 110 100 Q 100 80 115 65 Q 130 50 145 70 Q 165 100 175 155 Q 185 185 200 200"
+    fill="#00ff41"
+    opacity="0.9"
+    filter="url(#strongGlow)"
+  />
+  <!-- Right claw -->
+  <path d="M 200 200 Q 260 160 290 100 Q 300 80 285 65 Q 270 50 255 70 Q 235 100 225 155 Q 215 185 200 200"
+    fill="#00ff41"
+    opacity="0.9"
+    filter="url(#strongGlow)"
+  />
+  <!-- Center claw (tallest) -->
+  <path d="M 200 200 Q 190 155 185 110 Q 180 75 200 55 Q 220 75 215 110 Q 210 155 200 200"
+    fill="#00ff41"
+    opacity="1"
+    filter="url(#strongGlow)"
+  />
+  <!-- Palm base -->
+  <path d="M 155 210 Q 170 230 200 235 Q 230 230 245 210 Q 255 195 250 180 Q 235 185 200 188 Q 165 185 150 180 Q 145 195 155 210 Z"
+    fill="#00ff41"
+    opacity="0.85"
+    filter="url(#strongGlow)"
+  />
+
+  <!-- Claw tips glow dots -->
+  <circle cx="115" cy="65" r="5" fill="#00ff41" filter="url(#softGlow)" opacity="0.9"/>
+  <circle cx="285" cy="65" r="5" fill="#00ff41" filter="url(#softGlow)" opacity="0.9"/>
+  <circle cx="200" cy="55" r="6" fill="#00ff41" filter="url(#softGlow)" opacity="1"/>
+
+  <!-- BASE chain hexagon badge bottom right -->
+  <polygon
+    points="330,300 355,314 355,342 330,356 305,342 305,314"
+    fill="#0052ff"
+    opacity="0.9"
+    filter="url(#glow)"
+  />
+  <text x="330" y="333" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="white">BASE</text>
+
+  <!-- Scanlines overlay -->
+  <rect width="400" height="400" rx="20"
+    fill="none"
+    stroke="none"
+    style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px)"
+    opacity="0.3"
+  />
+
+  <!-- Text: GITCLAW -->
+  <text
+    x="200" y="295"
+    text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="36"
+    font-weight="900"
+    letter-spacing="8"
+    fill="#00ff41"
+    filter="url(#softGlow)"
+  >GITCLAW</text>
+
+  <!-- Text: $GCLAW -->
+  <text
+    x="200" y="322"
+    text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="14"
+    letter-spacing="4"
+    fill="#4a8a55"
+  >$GCLAW • BASE CHAIN</text>
+
+  <!-- Corner brackets -->
+  <g stroke="#00ff41" stroke-width="1.5" fill="none" opacity="0.5">
+    <polyline points="15,30 15,15 30,15"/>
+    <polyline points="370,15 385,15 385,30"/>
+    <polyline points="15,370 15,385 30,385"/>
+    <polyline points="370,385 385,385 385,370"/>
+  </g>
+
+  <!-- Blinking cursor element -->
+  <rect x="185" y="340" width="10" height="14" fill="#00ff41" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0;0.7" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
